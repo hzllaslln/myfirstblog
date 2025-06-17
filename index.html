@@ -1,36 +1,108 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eskişehir'de Bir Gün</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #f4f4f4;
       color: #333;
     }
-    h1 {
-      color: #0088cc;
+    header {
+      background-color: #2c3e50;
+      padding: 20px 0;
+      text-align: center;
+      color: white;
+    }
+    nav {
+      background-color: #34495e;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
     }
     nav a {
-      margin: 0 10px;
+      color: white;
+      padding: 14px 20px;
       text-decoration: none;
-      color: #0088cc;
-      font-weight: bold;
+      display: block;
     }
     nav a:hover {
-      text-decoration: underline;
+      background-color: #2c3e50;
+    }
+    .hero {
+      padding: 50px;
+      text-align: center;
+      background-color: #ecf0f1;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 40px;
+    }
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px;
+      gap: 20px;
+    }
+    .card {
+      background-color: white;
+      padding: 20px;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .card h2 {
+      margin-top: 0;
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <h1>Eskişehir’de Bir Gün – Blog Sayfası</h1>
+  <header>
+    <h1>“Eskişehir’de Bir Gün” – Öğrenci Proje Blogu</h1>
+  </header>
+
   <nav>
-    <a href="gorev.html">Görev Bilgileri</a>
+    <a href="index.html">Ana Sayfa</a>
+    <a href="gorev-bilgileri.html">Görev Bilgileri</a>
+    <a href="asamalar.html">Görev Aşamaları</a>
     <a href="roportaj.html">Röportaj Soruları</a>
-    <a href="video.html">Video Görevi</a>
+    <a href="video.html">Video Teslimi</a>
   </nav>
-  <p>Bu sayfa, yabancı öğrencilerle yapılan Türkçe öğrenme projesi için hazırlanmıştır.</p>
+
+  <div class="hero">
+    <h1>Gerçek yaşamda Türkçe kullan, projeni paylaş!</h1>
+    <p>Gezi, röportaj ve video belgesel görevleriyle öğrenmeyi keşfet.</p>
+  </div>
+
+  <div class="content">
+    <div class="card">
+      <h2>Görev Amacı</h2>
+      <p>Türkçeyi doğal ortamda kullanmak, grup çalışması yapmak ve dijital içerik üretmek.</p>
+    </div>
+    <div class="card">
+      <h2>Nasıl Yapılır?</h2>
+      <p>Grubunu oluştur, Eskişehir’i gez, röportaj yap, videonu hazırla ve paylaş!</p>
+    </div>
+    <div class="card">
+      <h2>Malzemeler</h2>
+      <p>Telefon, defter, video düzenleme uygulaması, bolca yaratıcılık.</p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 “Eskişehir’de Bir Gün” Projesi - Tüm Hakları Saklıdır
+  </footer>
 </body>
 </html>
