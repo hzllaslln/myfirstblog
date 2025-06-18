@@ -6,6 +6,9 @@
   <title>Eskişehir’de Bir Gün</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
     html {
       scroll-behavior: smooth;
     }
@@ -40,18 +43,38 @@
       top: 0;
       z-index: 999;
     }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 18px;
-      margin: 0 8px;
-      font-weight: 500;
-      border-radius: 4px;
-      transition: background 0.3s ease, color 0.3s ease;
+    .dropdown {
+      position: relative;
+      display: inline-block;
     }
-    nav a:hover {
-      background-color: #d1bfa3;
-      color: #4a2d15;
+    .dropbtn {
+      background-color: #5e3b1d;
+      color: white;
+      padding: 10px 18px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown-content a {
+      color: #5e3b1d;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
     section {
       max-width: 900px;
@@ -60,6 +83,10 @@
       background: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      display: none;
+    }
+    section.active {
+      display: block;
     }
     section h2 {
       border-bottom: 2px solid #ddd;
@@ -77,91 +104,96 @@
   </header>
 
   <nav>
-    <a href="#hakkinda">Blog Hakkında</a>
-    <a href="#rol">Rolünü Seç</a>
-    <a href="#gezi">Gezi Teması</a>
-    <a href="#roportaj">Röportaj Soruları</a>
-    <a href="#video">Video Yapısı</a>
-    <a href="#malzeme">Malzeme Listesi</a>
-    <a href="#hazir">Hazır Mısın?</a>
+    <div class="dropdown">
+      <button class="dropbtn">Blog Hakkında</button>
+      <div class="dropdown-content">
+        <a href="#hakkinda" onclick="showSection('hakkinda')">Sitenin İçeriğinde Neler Var?</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Rolünü Seç</button>
+      <div class="dropdown-content">
+        <a href="#rol" onclick="showSection('rol')">Grup Oluşturma Süreci</a>
+        <a href="#rol" onclick="showSection('rol')">Rol Dağılımı</a>
+        <a href="#rol" onclick="showSection('rol')">Etkili Grup İletişimi</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Gezi Teması Belirle</button>
+      <div class="dropdown-content">
+        <a href="#gezi" onclick="showSection('gezi')">Yer Seçimi</a>
+        <a href="#gezi" onclick="showSection('gezi')">Tema 1</a>
+        <a href="#gezi" onclick="showSection('gezi')">Tema 2</a>
+        <a href="#gezi" onclick="showSection('gezi')">Tema 3</a>
+        <a href="#gezi" onclick="showSection('gezi')">Tema 4</a>
+        <a href="#gezi" onclick="showSection('gezi')">Uygulama Örneği</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Röportaj Sorularını Hazırla</button>
+      <div class="dropdown-content">
+        <a href="#roportaj" onclick="showSection('roportaj')">Nasıl Hazırlanır?</a>
+        <a href="#roportaj" onclick="showSection('roportaj')">Öneri Alma Amaçlı</a>
+        <a href="#roportaj" onclick="showSection('roportaj')">Yönlendirme ve Bilgi</a>
+        <a href="#roportaj" onclick="showSection('roportaj')">Uygulama Tavsiyeleri</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Video Yapısı</button>
+      <div class="dropdown-content">
+        <a href="#video" onclick="showSection('video')">Kendimizi Tanıtıyoruz</a>
+        <a href="#video" onclick="showSection('video')">Bizce Görülmeli</a>
+        <a href="#video" onclick="showSection('video')">Eskişehir’i Halktan Dinleyelim</a>
+        <a href="#video" onclick="showSection('video')">Anılar Biriktiriyoruz</a>
+        <a href="#video" onclick="showSection('video')">Size Soruyoruz</a>
+        <a href="#video" onclick="showSection('video')">Dijital Araç Önerileri</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Malzeme Listesi</button>
+      <div class="dropdown-content">
+        <a href="#malzeme" onclick="showSection('malzeme')">Teknolojik Araçlar</a>
+        <a href="#malzeme" onclick="showSection('malzeme')">Fiziksel Malzemeler</a>
+        <a href="#malzeme" onclick="showSection('malzeme')">Yazılımsal Araçlar</a>
+        <a href="#malzeme" onclick="showSection('malzeme')">Öneriler</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Hazır Mısın?</button>
+      <div class="dropdown-content">
+        <a href="#hazir" onclick="showSection('hazir')">Hazır mıyız?</a>
+      </div>
+    </div>
   </nav>
 
-  <section id="hakkinda">
-    <h2>Blog Hakkında</h2>
-    <h3>Sitenin İçeriğinde Neler Var?</h3>
-    <p>“Eskişehir’de Bir Gün” adlı bu site, yabancı dil olarak Türkçe öğrenen öğrencilerin gerçek yaşamla bağlantılı, uygulamalı ve eğlenceli bir öğrenme deneyimi yaşamaları amacıyla hazırlanmıştır. Bu blog, özellikle görev temelli öğrenme yaklaşımıyla Türkçeyi hem içerik üretirken hem de iletişim kurarken geliştirmeyi hedefler.</p>
-    <p>Bu blogdaki içerikler; öğrencilerin okuma, yazma, dinleme ve konuşma becerilerini grup çalışması, saha araştırması, röportajlar ve video içerik üretimi ile destekleyecek şekilde yapılandırılmıştır. Hem eğitmenlerin hem de öğrencilerin kullanımına uygun olması hedeflenmiştir.</p>
+  <section id="hakkinda" class="active">
+    <!-- İçerik buraya gelecek -->
   </section>
-
   <section id="rol">
-    <h2>Rolünü Seç</h2>
-    <h3>Grup Oluşturma Süreci</h3>
-    <p>Öğrenciler gönüllü olarak ya da öğretmen rehberliğinde gruplar oluşturur. Her grup en az 3, en fazla 4 kişiden oluşmalıdır. Gruplar arasında eşit sorumluluk dağılımı sağlanmalıdır. Her grup bir isim seçebilir (örnek: “Eskişehir Keşifçileri”, “Gezi Takımı 1”, “Tarihi Rotalar Grubu”).</p>
-    <h3>Rol Dağılımı</h3>
-    <p>Her grup üyesi dört ana rolden birini üstlenir: Tur Rehberi, Kameraman, Röportajcı, Anlatıcı/Yazar. Roller dönüşümlü olabilir. Her rol farklı dil becerilerini geliştirir.</p>
-    <h3>Etkili Grup İletişimi</h3>
-    <p>Her gün kısa bir planlama toplantısı yapılmalı, görevler yazılı olarak belirlenmeli, anlaşmazlıklar öğretmen rehberliğinde çözülmeli ve tüm grup üyeleri birbirine destek olmalıdır.</p>
+    <!-- İçerik buraya gelecek -->
   </section>
-
   <section id="gezi">
-    <h2>Gezi Teması</h2>
-    <h3>Yer Seçimi</h3>
-    <p>Her grup, Eskişehir’de en az 3 farklı mekân seçmeli. Bu yerler farklı temalarla ilişkilendirilir: Tarih, Doğa, Eğlence, Lezzet. Ziyaret noktaları ve görev önerileri listelenmiştir.</p>
-    <h3>Tema 1: Tarihi Eskişehir</h3>
-    <p>Yerler: Odunpazarı, Kurşunlu Külliyesi, Eti Arkeoloji Müzesi. Görev: Yer tanıtımı, geçmiş zaman ve betimleyici sıfatlarla anlatım.</p>
-    <h3>Tema 2: Doğayla İç İçe</h3>
-    <p>Yerler: Sazova, Kanlıkavak, Kentpark. Görev: Doğa betimleme, yer-yön zarfları.</p>
-    <h3>Tema 3: Eğlenceli Eskişehir</h3>
-    <p>Yerler: Bilim Deney Merkezi, Masal Şatosu, Porsuk Çayı. Görev: Anı paylaşımı, duygu ifadeleri.</p>
-    <h3>Tema 4: Lezzet Durağı</h3>
-    <p>Yerler: Balaban Kebapçısı, Çibörekçiler. Görev: Tadım anlatımı, röportaj, öneri ifadeleri.</p>
-    <h3>Uygulama Örneği</h3>
-    <p>Grup 1: Odunpazarı – Tarihi Eskişehir, Sazova – Doğa, Çibörekçi – Lezzet. Planlama ipuçları ve güzergâh çizimi önerilir.</p>
+    <!-- İçerik buraya gelecek -->
   </section>
-
   <section id="roportaj">
-    <h2>Röportaj Soruları</h2>
-    <h3>Nasıl Hazırlanır?</h3>
-    <p>5-7 açık ve anlaşılır soru belirlenmeli. Sorular öneri alma ve bilgi edinme amaçlı iki gruba ayrılır.</p>
-    <h3>Öneri Alma Amaçlı Sorular</h3>
-    <p>"Sizce ilk gezilecek yer neresi?", "Çocuklar için eğlenceli yer öneriniz var mı?", "En çok sevdiğiniz şey ne?" gibi sorular örneklendirilmiştir.</p>
-    <h3>Yönlendirme ve Bilgi Soruları</h3>
-    <p>"Burası hakkında bir hikâye biliyor musunuz?", "Ne zaman gelinmeli?", "Yemek öneriniz var mı?" gibi detaylı bilgi soruları önerilir.</p>
-    <h3>Uygulama Tavsiyeleri</h3>
-    <p>Röportaj sırasında nezaket ifadeleri kullanılmalı, cevaplar not alınmalı ya da kaydedilmeli, grupça soru listesi hazırlanmalı.</p>
+    <!-- İçerik buraya gelecek -->
   </section>
-
   <section id="video">
-    <h2>Video Yapısı</h2>
-    <h3>Kendimizi Tanıtıyoruz</h3>
-    <p>Grup üyeleri kendilerini tanıtır, yer özetlemesi yapar. Gelecek zaman ifadeleri kullanılır.</p>
-    <h3>Bizce Görülmeli</h3>
-    <p>Her öğrenci seçilen bir yeri tanıtır. Mekân görüntüleriyle desteklenir. Geniş zaman, betimleme kalıpları öne çıkar.</p>
-    <h3>Eskişehir’i Halktan Dinleyelim</h3>
-    <p>Hazırlanan sorularla halktan görüş alınır. Röportaj bölümleri video içine yerleştirilir.</p>
-    <h3>Anılar Biriktiriyoruz</h3>
-    <p>Doğal, eğlenceli, samimi sahneler gösterilir. Müzik ve geçiş efektleriyle zenginleştirilir.</p>
-    <h3>Size Soruyoruz</h3>
-    <p>Kapanışta izleyiciye soru sorulur, teşekkür edilir. Katılım teşvik edilir.</p>
-    <h3>Dijital Araç Önerileri</h3>
-    <p>CapCut, InShot, iMovie, Canva gibi araçlarla düzenleme önerilir. Teknik detaylar ve görsel destekler açıklanır.</p>
+    <!-- İçerik buraya gelecek -->
   </section>
-
   <section id="malzeme">
-    <h2>Malzeme Listesi</h2>
-    <h3>Teknolojik Araçlar</h3>
-    <p>Telefon, tripod, mikrofonlu kulaklık, powerbank gibi araçlar önerilir. Video ve ses kaydı için temel ekipmanlar listelenir.</p>
-    <h3>Fiziksel Malzemeler</h3>
-    <p>Not defteri, harita çıktısı, görev yönergeleri ve kişisel bakım ürünleri (su, güneş kremi vb.) yer alır.</p>
-    <h3>Yazılımsal Araçlar</h3>
-    <p>Montaj ve sunum için CapCut, InShot, iMovie, Canva gibi uygulamalar önerilir.</p>
-    <h3>Öneriler</h3>
-    <p>Kontrol listesi: şarj doluluğu, sorular hazır, video test edildi, görev dağılımı gözden geçirildi.</p>
+    <!-- İçerik buraya gelecek -->
+  </section>
+  <section id="hazir">
+    <!-- İçerik buraya gelecek -->
   </section>
 
-  <section id="hazir">
-    <h2>Hazır Mısın?</h2>
-    <p>Malzemeler tamamlandığında öğrenciler artık sahaya çıkmaya ve projeyi hayata geçirmeye hazırdır. Unutmayın: Malzemeler sadece araçtır. Asıl değerli olan, onları nasıl kullandığınızdır.</p>
-  </section>
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
