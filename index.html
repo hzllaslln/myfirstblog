@@ -2,26 +2,135 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eskişehir’de Bir Gün</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f6f2;
+      color: #2e2e2e;
+    }
+    header {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/e/e9/Odunpazari_Evleri.jpg') no-repeat center center;
+      background-size: cover;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+    header h1 {
+      font-size: 2.8em;
+      padding: 0 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #5e3b1d;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 12px 10px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      font-weight: 500;
+      border-radius: 4px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #d1bfa3;
+      color: #4a2d15;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 850px;
+      margin: 30px auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    section h2 {
+      color: #5e3b1d;
+      margin-bottom: 16px;
+    }
+    h3 {
+      margin-top: 25px;
+      color: #333;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 24px 10px;
+      background-color: #5e3b1d;
+      color: white;
+      margin-top: 40px;
+      font-size: 0.95em;
+    }
+  </style>
 </head>
 <body>
-
-  <header class="navbar">
-    <div class="logo">Eskişehir’de Bir Gün</div>
-    <nav class="nav-links">
-      <a href="index.html">Görev Bilgileri</a>
-      <a href="asamalar.html">Görev Aşamaları</a>
-      <a href="sorular.html">Röportaj Soruları</a>
-      <a href="hakkinda.html">Hakkında</a>
-    </nav>
+  <header>
+    <h1>Eskişehir’de Bir Gün</h1>
   </header>
 
-  <main class="main-content">
-    <h1>Hoş Geldiniz!</h1>
-    <p>Bu blog, Türkçe öğrenen öğrencilerin Eskişehir’de gerçekleştirdiği görev temelli öğrenme projesini anlatır.</p>
-  </main>
+  <nav>
+    <a href="#amac">Amaç</a>
+    <a href="#asamalar">Aşamalar</a>
+    <a href="#sorular">Sorular</a>
+    <a href="#sunum">Sunum</a>
+  </nav>
 
+  <section id="amac">
+    <h2>Amaç</h2>
+    <p>Gerçek yaşamda Türkçeyi aktif olarak kullanmak, dört temel dil becerisini geliştirmek, grup çalışmasıyla iş birliği yapmak ve teknolojiyle içerik üretmek.</p>
+  </section>
+
+  <section id="asamalar">
+    <h2>Görev Aşamaları</h2>
+    <ul>
+      <li><strong>Grup Oluşturma:</strong> 3-4 kişilik gruplar kurulur ve roller belirlenir.</li>
+      <li><strong>Gezi Teması:</strong> Eskişehir’de 3 yer seçilir, tanıtım cümleleri hazırlanır.</li>
+      <li><strong>Video Çekimi:</strong> Yer tanıtımı, röportaj ve eğlenceli anlar kaydedilir.</li>
+    </ul>
+  </section>
+
+  <section id="sorular">
+    <h2>Röportaj Soruları</h2>
+    <h3>Genel Sorular</h3>
+    <ul>
+      <li>Burayı ilk defa mı görüyorsunuz?</li>
+      <li>En çok neyi beğendiniz?</li>
+      <li>Buranın nesi meşhur?</li>
+    </ul>
+    <h3>Halka Yönelik Sorular</h3>
+    <ul>
+      <li>Eskişehir’e gelen bir turist mutlaka nereyi görmeli sizce?</li>
+      <li>Tarihi ve kültürel bir yer önerecek olsanız nereyi tavsiye edersiniz?</li>
+      <li>Yemek veya çay için sakin bir yer öneriniz var mı?</li>
+    </ul>
+  </section>
+
+  <section id="sunum">
+    <h2>Sunum ve Değerlendirme</h2>
+    <p>Videonuzu sınıfta sunun. Kısa sözlü tanıtım yapın. Diğer grupların videolarını izleyerek geri bildirim verin.</p>
+  </section>
+
+  <footer>
+    <p>Eskişehir’de Bir Gün – Hazırlayanlar: Öğrenci Grubu</p>
+  </footer>
 </body>
 </html>
