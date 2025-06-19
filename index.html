@@ -96,7 +96,40 @@
       margin-top: 24px;
       color: #5e3b1d;
     }
+    blockquote {
+      background: #eee;
+      border-left: 5px solid #999;
+      padding: 10px 20px;
+      font-style: italic;
+      margin: 20px 0;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid #aaa;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
   </style>
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      const active = document.getElementById(id);
+      if (active) {
+        active.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+    window.onload = function() {
+      showSection('hakkinda');
+    };
+  </script>
 </head>
 <body>
   <header>
@@ -104,96 +137,513 @@
   </header>
 
   <nav>
-    <div class="dropdown">
-      <button class="dropbtn">Blog Hakkında</button>
-      <div class="dropdown-content">
-        <a href="#hakkinda" onclick="showSection('hakkinda')">Sitenin İçeriğinde Neler Var?</a>
-      </div>
+  <div class="dropdown">
+    <button class="dropbtn">Blog Hakkında</button>
+    <div class="dropdown-content">
+      <a href="#hakkinda" onclick="showSection('hakkinda'); return false;">Sitenin İçeriğinde Neler Var?</a>
     </div>
-    <div class="dropdown">
-      <button class="dropbtn">Rolünü Seç</button>
-      <div class="dropdown-content">
-        <a href="#rol" onclick="showSection('rol')">Grup Oluşturma Süreci</a>
-        <a href="#rol" onclick="showSection('rol')">Rol Dağılımı</a>
-        <a href="#rol" onclick="showSection('rol')">Etkili Grup İletişimi</a>
-      </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Rolünü Seç</button>
+    <div class="dropdown-content">
+      <a href="#rol-grup" onclick="showSection('rol-grup'); return false;">Grup Oluşturma Süreci</a>
+      <a href="#rol-dagilimi" onclick="showSection('rol-dagilimi'); return false;">Rol Dağılımı</a>
+      <a href="#rol-iletisim" onclick="showSection('rol-iletisim'); return false;">Etkili Grup İletişimi</a>
     </div>
-    <div class="dropdown">
-      <button class="dropbtn">Gezi Teması Belirle</button>
-      <div class="dropdown-content">
-        <a href="#gezi" onclick="showSection('gezi')">Yer Seçimi</a>
-        <a href="#gezi" onclick="showSection('gezi')">Tema 1</a>
-        <a href="#gezi" onclick="showSection('gezi')">Tema 2</a>
-        <a href="#gezi" onclick="showSection('gezi')">Tema 3</a>
-        <a href="#gezi" onclick="showSection('gezi')">Tema 4</a>
-        <a href="#gezi" onclick="showSection('gezi')">Uygulama Örneği</a>
-      </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Gezi Teması Belirle</button>
+    <div class="dropdown-content">
+      <a href="#gezi-yer" onclick="showSection('gezi-yer'); return false;">Yer Seçimi</a>
+      <a href="#gezi-tema1" onclick="showSection('gezi-tema1'); return false;">Tema 1 (Tarihi Eskişehir)</a>
+      <a href="#gezi-tema2" onclick="showSection('gezi-tema2'); return false;">Tema 2 (Doğayla İç İçe)</a>
+      <a href="#gezi-tema3" onclick="showSection('gezi-tema3'); return false;">Tema 3 (Eğlenceli Eskişehir)</a>
+      <a href="#gezi-tema4" onclick="showSection('gezi-tema4'); return false;">Tema 4 (Lezzet Durağı)</a>
+      <a href="#gezi-ornek" onclick="showSection('gezi-ornek'); return false;">Uygulama Örneği</a>
     </div>
-    <div class="dropdown">
-      <button class="dropbtn">Röportaj Sorularını Hazırla</button>
-      <div class="dropdown-content">
-        <a href="#roportaj" onclick="showSection('roportaj')">Nasıl Hazırlanır?</a>
-        <a href="#roportaj" onclick="showSection('roportaj')">Öneri Alma Amaçlı</a>
-        <a href="#roportaj" onclick="showSection('roportaj')">Yönlendirme ve Bilgi</a>
-        <a href="#roportaj" onclick="showSection('roportaj')">Uygulama Tavsiyeleri</a>
-      </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Röportaj Sorularını Hazırla</button>
+    <div class="dropdown-content">
+      <a href="#roportaj-hazirlik" onclick="showSection('roportaj-hazirlik'); return false;">Nasıl Hazırlanır?</a>
+      <a href="#roportaj-oneri" onclick="showSection('roportaj-oneri'); return false;">Öneri Alma Amaçlı Sorular</a>
+      <a href="#roportaj-yonlendirme" onclick="showSection('roportaj-yonlendirme'); return false;">Yönlendirme ve Bilgi Soruları</a>
+      <a href="#roportaj-uygulama" onclick="showSection('roportaj-uygulama'); return false;">Uygulama Tavsiyeleri</a>
+      <a href="#roportaj-gerekenler" onclick="showSection('roportaj-gerekenler'); return false;">Gerekli Hazırlıklar</a>
     </div>
-    <div class="dropdown">
-      <button class="dropbtn">Video Yapısı</button>
-      <div class="dropdown-content">
-        <a href="#video" onclick="showSection('video')">Kendimizi Tanıtıyoruz</a>
-        <a href="#video" onclick="showSection('video')">Bizce Görülmeli</a>
-        <a href="#video" onclick="showSection('video')">Eskişehir’i Halktan Dinleyelim</a>
-        <a href="#video" onclick="showSection('video')">Anılar Biriktiriyoruz</a>
-        <a href="#video" onclick="showSection('video')">Size Soruyoruz</a>
-        <a href="#video" onclick="showSection('video')">Dijital Araç Önerileri</a>
-      </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Video Yapısı</button>
+    <div class="dropdown-content">
+      <a href="#video-giris" onclick="showSection('video-giris'); return false;">Kendimizi Tanıtıyoruz</a>
+      <a href="#video-yer" onclick="showSection('video-yer'); return false;">Bizce Görülmeli</a>
+      <a href="#video-roportaj" onclick="showSection('video-roportaj'); return false;">Eskişehir’i Halktan Dinleyelim</a>
+      <a href="#video-anilar" onclick="showSection('video-anilar'); return false;">Anılar Biriktiriyoruz</a>
+      <a href="#video-kapanis" onclick="showSection('video-kapanis'); return false;">Size Soruyoruz</a>
+      <a href="#video-dijital" onclick="showSection('video-dijital'); return false;">Dijital Araç Önerileri</a>
     </div>
-    <div class="dropdown">
-      <button class="dropbtn">Malzeme Listesi</button>
-      <div class="dropdown-content">
-        <a href="#malzeme" onclick="showSection('malzeme')">Teknolojik Araçlar</a>
-        <a href="#malzeme" onclick="showSection('malzeme')">Fiziksel Malzemeler</a>
-        <a href="#malzeme" onclick="showSection('malzeme')">Yazılımsal Araçlar</a>
-        <a href="#malzeme" onclick="showSection('malzeme')">Öneriler</a>
-      </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Malzeme Listesi</button>
+    <div class="dropdown-content">
+      <a href="#malzeme-teknoloji" onclick="showSection('malzeme-teknoloji'); return false;">Teknolojik Araçlar</a>
+      <a href="#malzeme-fiziksel" onclick="showSection('malzeme-fiziksel'); return false;">Fiziksel Malzemeler</a>
+      <a href="#malzeme-yazilim" onclick="showSection('malzeme-yazilim'); return false;">Yazılımsal Araçlar</a>
+      <a href="#malzeme-oneri" onclick="showSection('malzeme-oneri'); return false;">Öneriler</a>
     </div>
-    <div class="dropdown">
-      <button class="dropbtn">Hazır Mısın?</button>
-      <div class="dropdown-content">
-        <a href="#hazir" onclick="showSection('hazir')">Hazır mıyız?</a>
-      </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Hazır Mısın?</button>
+    <div class="dropdown-content">
+      <a href="#hazir" onclick="showSection('hazir'); return false;">Hazır mıyız?</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <section id="hakkinda" class="active">
-    <!-- İçerik buraya gelecek -->
-  </section>
-  <section id="rol">
-    <!-- İçerik buraya gelecek -->
-  </section>
-  <section id="gezi">
-    <!-- İçerik buraya gelecek -->
-  </section>
-  <section id="roportaj">
-    <!-- İçerik buraya gelecek -->
-  </section>
-  <section id="video">
-    <!-- İçerik buraya gelecek -->
-  </section>
-  <section id="malzeme">
-    <!-- İçerik buraya gelecek -->
-  </section>
-  <section id="hazir">
-    <!-- İçerik buraya gelecek -->
-  </section>
+<section id="hakkinda" class="active">
+  <h2>Sitenin İçeriğinde Neler Var?</h2>
+  <p>“Eskişehir’de Bir Gün” adlı bu site, yabancı dil olarak Türkçe öğrenen öğrencilerin gerçek yaşamla bağlantılı, uygulamalı ve eğlenceli bir öğrenme deneyimi yaşamaları amacıyla hazırlanmıştır. Bu blog, özellikle görev temelli öğrenme yaklaşımıyla Türkçeyi hem içerik üretirken hem de iletişim kurarken geliştirmeyi hedefler.</p>
+  <p>Bu blogdaki içerikler; öğrencilerin okuma, yazma, dinleme ve konuşma becerilerini grup çalışması, saha araştırması, röportajlar ve video içerik üretimi ile destekleyecek şekilde yapılandırılmıştır. Hem eğitmenlerin hem de öğrencilerin kullanımına uygun olması hedeflenmiştir.</p>
+  <h3>Rolünü Seç</h3>
+  <p>Bu bölümde projeye nasıl başlayacağınız, hangi sırayla neler yapacağınız sade ve açık bir şekilde anlatılır. Rehber niteliğindedir.</p>
+  <h3>Gezi Temaları</h3>
+  <p>Eskişehir’in önemli ve ilgi çekici noktaları hakkında bilgi alabilir, kendi gezilecek yer listenizi oluşturabilirsiniz. Neresi gezilir, neden gezilir sorularına cevap bulacaksınız.</p>
+  <h3>Röportaj Soruları</h3>
+  <p>Saha görevinde halkla yapılacak röportajlar için örnek sorular bu başlık altında yer alır. Türkçeyi doğal iletişimde kullanmanız için zenginleştirilmiş öneriler sunar.</p>
+  <h3>Video Aşamaları</h3>
+  <p>Kendi belgeselinizi çekerken nelere dikkat etmeniz gerektiğini, çekimden montaja kadar olan tüm süreçleri burada öğrenebilirsiniz. Pratik öneriler, uygulama ipuçları da bu bölümde yer alır.</p>
+  <h3>Malzemeler</h3>
+  <p>Projeye başlamadan önce nelere ihtiyacınız olduğunu bu bölümden kontrol edebilirsiniz. Telefon kamerası, not defteri, montaj uygulamaları gibi tüm araçlar listelenmiştir.</p>
+  <p>Bu blog yalnızca bir ders aracı değil, aynı zamanda sosyal, yaratıcı ve işbirliğine dayalı bir öğrenme alanıdır.<br>
+  Kameranızı açın, halkla konuşun, gezip keşfedin ve Türkçeyle birlikte harika anılar biriktirin!</p>
+  <blockquote>
+    <p>Unutmayın:<br>Öğrenmek sadece kitaplarla değil, yaşadıklarımızla da mümkündür.<br>
+    Eskişehir’de bir gün geçirmeye hazır mısınız?</p>
+  </blockquote>
+</section>
+<section id="rol-grup">
+  <h2>Grup Oluşturma Süreci:</h2>
+  <ul>
+    <li>Öğrenciler gönüllü olarak ya da öğretmen rehberliğinde gruplar oluşturur.</li>
+    <li>Her grup en az 3, en fazla 4 kişiden oluşmalıdır.</li>
+    <li>Gruplar arasında eşit sorumluluk dağılımı sağlanmalıdır.</li>
+    <li>Her grup bir isim seçebilir (örnek: “Eskişehir Keşifçileri”, “Gezi Takımı 1”, “Tarihi Rotalar Grubu”).</li>
+  </ul>
+</section>
+<section id="rol-dagilimi">
+  <h3>Rol Dağılımı:</h3>
+  <h4>Herkesin Bir Görevi Olmalı</h4>
+  <p>Her grup üyesi aşağıdaki dört ana rolden birini üstlenir. Bu roller proje boyunca dönüşümlü olabilir; böylece her öğrenci farklı becerileri deneme fırsatı bulur.</p>
 
-  <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
+  <h5>Tur Rehberi</h5>
+  <ul>
+    <li>Grup adına konuşur, kamera karşısında yer tanıtımı yapar.</li>
+    <li>Gidilen yerin tarihî, kültürel ya da doğal özelliklerini açıklar.</li>
+    <li>Anlatımı sade ve anlaşılır bir dille yapar.</li>
+    <li>Yabancı öğrencilerin seviyesine uygun konuşmaya dikkat eder.</li>
+  </ul>
+  <p><em>Örnek cümle:</em> “Şu anda Odunpazarı’ndayız. Burası Eskişehir’in en eski yerleşim yerlerinden biridir.”</p>
+
+  <h5>Kameraman</h5>
+  <ul>
+    <li>Video çekimini gerçekleştirir. Açı, ses ve görüntüye dikkat eder.</li>
+    <li>Geniş plan, detay çekim, hareketli sahne gibi teknik çekimleri yapar.</li>
+    <li>Röportaj sırasında kamerayı sabit tutar.</li>
+    <li>Gerektiğinde tripod veya telefon sabitleyici kullanabilir.</li>
+  </ul>
+  <p><strong>Not:</strong> Kamera kalitesi değil, anlatım ve içerik önemlidir.</p>
+
+  <h5>Röportajcı</h5>
+  <ul>
+    <li>Röportaj sorularını halkla paylaşır.</li>
+    <li>Konuştuğu kişilere saygılı ve anlaşılır biçimde yaklaşır.</li>
+    <li>Açık uçlu sorular sorarak daha uzun cevaplar almaya çalışır.</li>
+    <li>Güleryüzlü ve etkili bir dinleyici olur.</li>
+  </ul>
+  <p><em>Örnek soru:</em> “Siz Eskişehir’i bir misafire gezdirecek olsanız nereye götürürdünüz?”</p>
+
+  <h5>Anlatıcı / Yazar</h5>
+  <ul>
+    <li>Çekim sonrası içerikleri yazar.</li>
+    <li>Video için açıklamalar, altyazılar veya kapanış konuşmalarını hazırlar.</li>
+    <li>Röportajdan alınan bilgileri derleyip düzenler.</li>
+    <li>Öğretmenle veya grup üyeleriyle sunum metni hazırlığında yer alır.</li>
+  </ul>
+  <p><em>Örnek:</em> “Bu gezide en çok dikkat çeken yer Sazova Parkı oldu. Hem çocuklar hem yetişkinler için çok eğlenceliydi.”</p>
+
+  <h3>Roller Neden Önemlidir?</h3>
+  <ul>
+    <li>Her rol, öğrencinin farklı dil becerisini ön plana çıkarır:</li>
+    <ul>
+      <li>Tur rehberi → konuşma ve sunum becerisi</li>
+      <li>Kameraman → teknolojik araç kullanımı ve gözlem</li>
+      <li>Röportajcı → etkileşimli konuşma ve dinleme becerisi</li>
+      <li>Anlatıcı → yazma ve düzenleme becerisi</li>
+    </ul>
+    <li>Öğrenciler rollerini sabit tutmak zorunda değildir. Dileyen öğrenciler farklı günlerde veya farklı yerlerde rol değişimi yaparak süreci çeşitlendirebilir.</li>
+  </ul>
+  <p><em>Öneri:</em> İlk gün bir rolü deneyen öğrenci, sonraki gün farklı bir rolü üstlenebilir. Böylece herkes her alanda kendini geliştirir.</p>
+</section>
+<section id="rol-iletisim">
+  <h3>Etkili Grup İletişimi:</h3>
+  <h4>Küçük Tavsiyeler:</h4>
+  <ul>
+    <li>Her gün kısa bir planlama toplantısı yapın.</li>
+    <li>Kimin ne yapacağına karar verin ve görev paylaşımını yazılı olarak kaydedin.</li>
+    <li>Anlaşmazlık durumunda öğretmen rehberliğinde çözüm arayın.</li>
+    <li>Birbirinize destek olun, kamera önünde veya mikrofon arkasında daima cesaret verici olun.</li>
+  </ul>
+</section>
+
+<section id="gezi-yer">
+  <h2>Yer Seçimi:</h2>
+  <h3>Nereye Gitmeli?</h3>
+  <p>Her grup, Eskişehir’de en az 3 farklı mekân seçmelidir. Bu yerlerin her biri, farklı bir tema ile ilişkilendirilecek ve orada yapılacak dilsel görevler planlanacaktır.</p>
+  <h3>Önerilen Ziyaret Noktaları:</h3>
+  <ul>
+    <li>Odunpazarı Tarihi Evleri</li>
+    <li>Sazova Bilim, Sanat ve Kültür Parkı</li>
+    <li>Kanlıkavak Parkı</li>
+    <li>Porsuk Çayı ve Adalar Bölgesi</li>
+    <li>Eti Arkeoloji Müzesi</li>
+    <li>Kurşunlu Külliyesi</li>
+    <li>Kentpark</li>
+    <li>Bilim Deney Merkezi</li>
+    <li>Masal Şatosu</li>
+    <li>Yılmaz Büyükerşen Balmumu Heykeller Müzesi</li>
+    <li>Balaban Kebapçısı, Çibörekçiler Sokağı</li>
+  </ul>
+</section>
+
+<section id="gezi-tema1">
+  <h3>Tema 1: Tarihi Eskişehir</h3>
+  <h4>Yer Örnekleri:</h4>
+  <ul>
+    <li>Odunpazarı</li>
+    <li>Kurşunlu Külliyesi</li>
+    <li>Eti Arkeoloji Müzesi</li>
+  </ul>
+  <h4>Görev Önerileri:</h4>
+  <ul>
+    <li>Tarihi bir yeri gezip kamera karşısında tanıtım yapın.</li>
+    <li>“Burası Osmanlı dönemine ait evlerle doludur.”</li>
+    <li>“Kurşunlu Külliyesi 16. yüzyıldan kalma önemli bir yapıdır.”</li>
+  </ul>
+  <h4>Dil Hedefi:</h4>
+  <ul>
+    <li>Geçmiş zaman kullanımı: “Yapılmıştı”, “inşa edildi”, “yaşanmış”</li>
+    <li>Betimleyici sıfatlar: “eski”, “geleneksel”, “taş kaplı”, “renkli pencereli”</li>
+    <li>Tarihî kavramlar: “külliye”, “müze”, “eski eser”, “çeşme”, “avlu”</li>
+  </ul>
+</section>
+
+<section id="gezi-tema2">
+  <h3>Tema 2: Doğayla İç İçe</h3>
+  <h4>Yer Örnekleri:</h4>
+  <ul>
+    <li>Sazova Parkı</li>
+    <li>Kanlıkavak Parkı</li>
+    <li>Kentpark</li>
+  </ul>
+  <h4>Görev Önerileri:</h4>
+  <ul>
+    <li>Park içinde yürürken çevreyi betimleyin.</li>
+    <li>“Sağda büyük bir gölet var, etrafında ördekler yüzüyor.”</li>
+    <li>“Çocuklar çimlerde oynuyor, arka planda Masal Şatosu görünüyor.”</li>
+  </ul>
+  <h4>Dil Hedefi:</h4>
+  <ul>
+    <li>Yer-yön zarfları: “yanında”, “önünde”, “arkasında”, “sağında”</li>
+    <li>Doğa kelimeleri: “ağaç”, “gölge”, “gölet”, “çim”, “köprü”, “yürüyüş yolu”</li>
+    <li>İfade kalıpları: “burada zaman geçirmek çok güzel”, “huzurlu bir ortam”</li>
+  </ul>
+</section>
+
+<section id="gezi-tema3">
+  <h3>Tema 3: Eğlenceli Eskişehir</h3>
+  <h4>Yer Örnekleri:</h4>
+  <ul>
+    <li>Bilim Deney Merkezi</li>
+    <li>Masal Şatosu</li>
+    <li>Porsuk Çayı (gondol/tekne)</li>
+    <li>Oyun alanları</li>
+  </ul>
+  <h4>Görev Önerileri:</h4>
+  <ul>
+    <li>Eğlenceli anları kaydedin ve bunları anlatın.</li>
+    <li>“Şato masallardan çıkmış gibi görünüyor!”</li>
+    <li>“Gondolla çayda gezmek çok keyifliydi.”</li>
+  </ul>
+  <h4>Dil Hedefi:</h4>
+  <ul>
+    <li>Duygu ve değerlendirme ifadeleri: “çok eğlendim”, “bence harika”, “şaşırtıcıydı”</li>
+    <li>Günlük konuşma dili: “Gerçekten mi?”, “Fotoğraf çekelim mi?”</li>
+    <li>Anlatım sırasında jest ve mimikler kullanma</li>
+  </ul>
+</section>
+
+<section id="gezi-tema4">
+  <h3>Tema 4: Lezzet Durağı</h3>
+  <h4>Yer Örnekleri:</h4>
+  <ul>
+    <li>Balaban Kebap Salonu</li>
+    <li>Çibörekçiler Sokağı</li>
+    <li>Tarihi kahvehaneler veya çay bahçeleri</li>
+  </ul>
+  <h4>Görev Önerileri:</h4>
+  <ul>
+    <li>Sipariş verme oyunu yapın: “Bir porsiyon çibörek alabilir miyim?”</li>
+    <li>Röportaj yapın: “Sizce Eskişehir’de ne yenir?”</li>
+    <li>Tadım anını anlatın: “Bu kebap çok yumuşak ve baharatlı.”</li>
+  </ul>
+  <h4>Dil Hedefi:</h4>
+  <ul>
+    <li>Emir ve rica cümleleri: “Lütfen menüyü alabilir miyim?”</li>
+    <li>Öneri ifadeleri: “Bunu mutlaka denemelisiniz.”</li>
+    <li>Tat ve doku betimlemeleri: “acı”, “kızarmış”, “ince hamur”, “sulu”</li>
+  </ul>
+</section>
+
+<section id="gezi-ornek">
+  <h3>Uygulama Örneği:</h3>
+  <ol>
+    <li>Odunpazarı → Tema: Tarihi Eskişehir → Görev: Yer tanıtımı</li>
+    <li>Sazova Parkı → Tema: Doğayla İç İçe → Görev: Doğayı tarif et</li>
+    <li>Çibörekçi Lokantası → Tema: Lezzet Durağı → Görev: Yerel yemek röportajı</li>
+  </ol>
+</section>
+
+<section id="roportaj-hazirlik">
+  <h2>Nasıl Hazırlanır?</h2>
+  <h3>Eskişehir’i Halktan Dinle</h3>
+  <ol>
+    <li>Grubunuzla birlikte en az 5-7 soru belirleyin.</li>
+    <li>Sorular kısa, açık ve kolay anlaşılır olmalıdır.</li>
+    <li>Soruları iki gruba ayırabilirsiniz:
+      <ul>
+        <li>Öneri Alma Amaçlı Sorular</li>
+        <li>Yönlendirme ve Bilgi Soruları</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<section id="roportaj-oneri">
+  <h3>Öneri Alma Amaçlı Sorular</h3>
+  <p>Bu sorular, Eskişehir’i en iyi bilen kişilere “bir turist gibi” soru sorma niyeti taşır.</p>
+  <ul>
+    <li>“Sizce Eskişehir’e ilk kez gelen bir kişi nereden başlamalı?”</li>
+    <li>“Siz olsanız bir turiste ilk nereyi gezdirirsiniz? Neden?”</li>
+    <li>“Eskişehir’de mutlaka görülmesi gereken bir yer var mı?”</li>
+    <li>“Çocuklar için eğlenceli ya da öğretici bir yer öneriniz var mı?”</li>
+    <li>“Bu şehirde en çok neyi seviyorsunuz? Neden?”</li>
+    <li>“Ailece vakit geçirmek için neresi uygundur?”</li>
+    <li>“Bir turist bir günlüğüne buraya gelirse neler yapmalı?”</li>
+  </ul>
+</section>
+
+<section id="roportaj-yonlendirme">
+  <h3>Yönlendirme ve Bilgi Soruları</h3>
+  <ul>
+    <li>“Burası hakkında ilginç bir bilgi ya da hikâye biliyor musunuz?”</li>
+    <li>“Buranın tarihi geçmişi hakkında bir şey duydunuz mu?”</li>
+    <li>“Sizce buraya gelmek için yılın en uygun zamanı hangisidir? Neden?”</li>
+    <li>“Buraya gelen biri ne yemeli, ne içmeli?”</li>
+    <li>“Turistler genellikle nerelere gidiyor, sizce doğru mu?”</li>
+    <li>“Sizce Eskişehir’i diğer şehirlerden farklı kılan şey nedir?”</li>
+    <li>“Bu bölgede yapılan geleneksel bir etkinlik ya da festival var mı?”</li>
+  </ul>
+</section>
+
+<section id="roportaj-uygulama">
+  <h3>Uygulama Tavsiyeleri</h3>
+  <ul>
+    <li>Röportaj sırasında şu kalıpları kullanabilirsiniz:</li>
+    <ul>
+      <li>“Merhaba, biz öğrenciyiz. Küçük bir röportaj yapabilir miyiz?”</li>
+      <li>“Size birkaç soru sorabilir miyim?”</li>
+      <li>“Cevabınızı videoya kaydetmemiz uygun olur mu?”</li>
+      <li>“Çok teşekkür ederiz, görüşleriniz bizim için çok değerli.”</li>
+    </ul>
+    <li>Sorular kağıda yazılmalı veya telefondan okunmalıdır.</li>
+    <li>Cevaplar not alınmalı veya mümkünse kamera ile kayıt altına alınmalıdır.</li>
+    <li>Röportaj sonunda “teşekkür ederiz” demek unutulmamalıdır.</li>
+  </ul>
+</section>
+
+<section id="roportaj-gerekenler">
+  <h3>Gerekli Hazırlıklar</h3>
+  <ul>
+    <li>Her grup, soru listesini birlikte oluşturur.</li>
+    <li>Öğretmen, soruların düzeyini kontrol ederek onaylar.</li>
+    <li>Röportaj sırasında kullanılacak kayıt cihazı (telefon, mikrofon vb.) hazır bulundurulur.</li>
+    <li>Öğrenciler rollerine göre görev paylaşımı yapar (Röportajcı sorar, Kameraman çeker, Diğerleri not alabilir).</li>
+  </ul>
+</section>
+<section id="video-giris">
+  <h4>Kendimizi Tanıtıyoruz:</h4>
+  <p><strong>Giriş</strong></p>
+  <ul>
+    <li>Grup üyeleri sırayla isimlerini söyler.</li>
+    <li>“Neden bu yerleri seçtik?”, “Bu projede ne yapacağız?” gibi kısa açıklamalar yapılır.</li>
+    <li>Gezilecek yerler özetlenir.</li>
+  </ul>
+  <p><em>Örnek anlatım:</em> “Merhaba! Biz Grup 2’yiz. Ben Ayşe, bu da arkadaşlarım Ahmet, Leyla ve Emir. Bugün Eskişehir’de üç güzel yeri keşfedeceğiz: Odunpazarı, Kanlıkavak ve Sazova Parkı. Hazırsanız başlıyoruz!”</p>
+  <p><strong>Dil Hedefi:</strong></p>
+  <ul>
+    <li>Kendini tanıtma</li>
+    <li>Gelecek zaman: “gideceğiz”, “tanıtacağız”</li>
+    <li>Proje amacını ifade etme</li>
+  </ul>
+</section>
+
+<section id="video-yer">
+  <h4>Bizce Görülmeli:</h4>
+  <p><strong>Yer Tanıtımları</strong></p>
+  <ul>
+    <li>Her öğrenci seçilen yerlerden birini kameraya tanıtır.</li>
+    <li>Tanıtım sırasında arka planda mekânın detaylı görüntüleri (bina cepheleri, tabelalar, doğa, objeler) gösterilir.</li>
+    <li>Girişte anlatılan temaya uygun bir anlatım yapılır (örneğin: Tarihi tema – geçmiş zaman; Doğa teması – betimleme).</li>
+  </ul>
+  <p><em>Örnek anlatım:</em> “Burası Kanlıkavak Parkı. Eskişehir’in merkezinde bulunuyor. Göletin çevresi yürüyüş yollarıyla çevrili. Ağaçlar arasında yürüyüş yapmak çok keyifli.”</p>
+  <p><strong>Dil Hedefi:</strong></p>
+  <ul>
+    <li>Yer betimleme</li>
+    <li>Görülen şeyleri anlatma</li>
+    <li>Geniş zaman kullanımı (“bulunuyor”, “yer alır”)</li>
+    <li>Yer-yön zarfları: “yanında”, “karşısında”, “ortasında”</li>
+  </ul>
+</section>
+
+<section id="video-roportaj">
+  <h4>Eskişehir’i Halktan Dinleyelim:</h4>
+  <p><strong>Röportajlar</strong></p>
+  <ul>
+    <li>Daha önce hazırlanan röportaj soruları kullanılarak halkla kısa görüşmeler yapılır.</li>
+    <li>Röportajlar video içine ham hâlde eklenebilir veya alt yazı/ara sesle desteklenebilir.</li>
+    <li>Röportajcı öğrenci konuşmayı başlatır, teşekkür ederek sonlandırır.</li>
+  </ul>
+  <p><em>Röportaj örneği:</em></p>
+  <ul>
+    <li>Öğrenci: “Sizce Eskişehir’de en güzel yer neresi?”</li>
+    <li>Vatandaş: “Bence Odunpazarı. Tarihî havası ve evleri çok güzel.”</li>
+    <li>Öğrenci: “Teşekkür ederiz, iyi günler!”</li>
+  </ul>
+</section>
+
+<section id="video-anilar">
+  <h4>Anılar Biriktiriyoruz:</h4>
+  <p><strong>Eğlenceli Anlar</strong></p>
+  <ul>
+    <li>Video çekimleri arasında gerçekleşen doğal, spontane ve samimi anlar kullanılır.</li>
+    <li>Örnek: Çay içmek, yürürken gülmek, fotoğraf çekmek, çocuklarla sohbet, esnafla kısa diyalog</li>
+    <li>Bu bölüm videoya müzik ve geçiş efektleriyle renk katmak için uygundur.</li>
+  </ul>
+  <p><em>Öneri:</em> Telifsiz hafif müzikler, yavaş geçiş efektleri (InShot, CapCut, iMovie kullanılabilir)</p>
+  <p><em>Örnek anlatım:</em></p>
+  <ul>
+    <li>“Çibörek yemeyi de ihmal etmedik! Çok lezzetliydi.”</li>
+    <li>“Bu parkta yürümek çok güzeldi. Çocuklar koşuyor, insanlar piknik yapıyor.”</li>
+  </ul>
+</section>
+
+<section id="video-kapanis">
+  <h4>Size Soruyoruz!:</h4>
+  <p><strong>Kapanış</strong></p>
+  <ul>
+    <li>Grup üyeleri kameraya bakarak kapanış konuşması yapar.</li>
+    <li>İzleyiciye bir soru sorarak etkileşim kurar.</li>
+    <li>Teşekkür edilir ve veda edilir.</li>
+  </ul>
+  <p><em>Örnek anlatım:</em></p>
+  <ul>
+    <li>“Bizim gözümüzden Eskişehir böyleydi. Peki siz, en çok hangi yeri merak ettiniz?”</li>
+    <li>“Bizi izlediğiniz için teşekkür ederiz. Hoşça kalın!”</li>
+  </ul>
+</section>
+
+<section id="video-dijital">
+  <h4>Dijital Araç Önerileri:</h4>
+  <ul>
+    <li>Telefon yatay modda kullanılmalı</li>
+    <li>Mikrofon varsa daha kaliteli ses alınabilir</li>
+    <li>Işığa dikkat edilmeli (yüz gölgede kalmamalı)</li>
+    <li>Gereksiz bölümler montajla çıkarılmalı</li>
+    <li>Mümkünse altyazı veya görsel açıklamalar eklenmeli</li>
+  </ul>
+  <ul>
+    <li>CapCut: Otomatik altyazı, efekt ve müzik</li>
+    <li>InShot: Kırpma, geçiş efektleri</li>
+    <li>iMovie (iOS): Başlangıç ve kapanış tasarımı</li>
+    <li>Canva Video: Basit metinli giriş ekranı oluşturma</li>
+  </ul>
+</section>
+<section id="malzeme-teknoloji">
+  <h3>Teknolojik Araçlar:</h3>
+  <p><em>(Dijital Görevler için)</em></p>
+  <ul>
+    <li>Akıllı Telefon veya Tablet<br>Video çekimi, ses kaydı ve fotoğraf için kullanılacaktır. Tüm grup üyeleri cihaz getirmek zorunda değildir, bir ya da iki cihaz yeterlidir.</li>
+    <li>Tripod veya Telefon Sabitleyici (Opsiyonel)<br>Daha net ve sabit çekimler için kullanılır. Yere koyulabilir veya selfie çubuğu olarak kullanılabilir.</li>
+    <li>Mikrofonlu Kulaklık (Opsiyonel ama önerilir)<br>Röportajlarda sesin net çıkmasını sağlar. Rüzgârlı alanlarda faydalıdır.</li>
+    <li>Taşınabilir Şarj Cihazı (Powerbank)<br>Gün içinde çekim yapan telefonun şarjının bitmemesi için çok önemlidir.</li>
+  </ul>
+</section>
+
+<section id="malzeme-fiziksel">
+  <h3>Fiziksel Malzemeler:</h3>
+  <p><em>(Saha Görevi için)</em></p>
+  <ul>
+    <li>Not Defteri ve Kalem<br>Röportaj cevaplarını yazmak, yer bilgisi toplamak için kullanılır. Röportajcı veya anlatıcı bu görevi üstlenebilir.</li>
+    <li>Harita veya Google Maps Çıktısı<br>Gezilecek yerlerin konumlarını görmek için basılı harita ya da çevrimdışı dijital harita kullanılabilir. Güzergâh planlaması yapılır.</li>
+    <li>Görev Yönergesi ve Soru Listesi<br>Hazırlanan röportaj sorularının çıktısı alınarak saha sırasında kullanılmalıdır. Her öğrenci kendi görevine dair notları yanında taşımalıdır.</li>
+    <li>Su, Atıştırmalık ve Güneş Koruyucu (Mevsime Göre)<br>Saha görevinde öğrencilerin sağlığı ve konforu önemlidir. Güneşli havalarda şapka ya da güneş kremi önerilir.</li>
+  </ul>
+</section>
+
+<section id="malzeme-yazilim">
+  <h3>Yazılımsal Araçlar:</h3>
+  <p><em>(Video Montajı ve Sunum için)</em></p>
+  <p>Öğrenciler kolay kullanımlı, ücretsiz uygulamalardan birini seçerek montaj işlemini yapabilir.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Uygulama</th>
+        <th>Platform</th>
+        <th>Özellikler</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>CapCut</td><td>Android / iOS</td><td>Otomatik altyazı, efekt, müzik</td></tr>
+      <tr><td>InShot</td><td>Android / iOS</td><td>Basit kesme, geçiş ve metin</td></tr>
+      <tr><td>iMovie</td><td>iOS / Mac</td><td>Profesyonel geçişler, tema şablonları</td></tr>
+      <tr><td>Canva Video</td><td>Web / Mobil</td><td>Başlık kartları, grafiklerle destekleme</td></tr>
+    </tbody>
+  </table>
+  <p>Google Drive / USB Bellek / Cloud<br>Videoların saklanması, paylaşılması ve sunum için taşınması amacıyla kullanılır. Gruplar arasında iş birliğini kolaylaştırır.</p>
+</section>
+
+<section id="malzeme-oneri">
+  <h3>Öneriler:</h3>
+  <p><em>Grup Hazırlık Listesi</em></p>
+  <ul>
+    <li>Telefon şarjı dolu</li>
+    <li>Röportaj soruları yazılı olarak hazır</li>
+    <li>Not defteri ve kalem çantada</li>
+    <li>Harita ya da yön bilgisi kontrol edildi</li>
+    <li>Video uygulaması yüklü ve test edildi</li>
+    <li>Görev dağılımı son kez gözden geçirildi</li>
+    <li>Yedek plan (yağmur, kalabalık vb.) oluşturuldu</li>
+  </ul>
+</section>
+
+<section id="hazir">
+  <h2>Hazır mısın?</h2>
+  <p>Malzemeler tamamlandığında öğrenciler artık sahaya çıkmaya ve projeyi hayata geçirmeye hazırdır.</p>
+  <p><strong>Unutmayın:</strong> Malzemeler sadece araçtır. Asıl değerli olan, onları nasıl kullandığınızdır.</p>
+  <blockquote><em>“Öğrenmek sadece kitaplarla değil, yaşadıklarımızla da mümkündür.”</em></blockquote>
+  <p><strong>Eskişehir’de bir gün geçirmeye hazır mısınız?</strong></p>
+</section>
+
+
 </body>
 </html>
